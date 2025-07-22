@@ -1,0 +1,220 @@
+{
+  "hero": {
+    "slides": [
+      {
+        "id": 1,
+        "title": "",
+        "subtitle": "",
+        "image": "https://insta360.co.id/wp-content/uploads/2024/10/WEB-BANNER-DESKTOP-X4.webp",
+        "ctaLink": "/products/x4",
+        "ctaText": ""
+      },
+      {
+        "id": 2,
+        "title": "",
+        "subtitle": "Clarity Redefined",
+        "image": "https://i.ytimg.com/vi/fA5Q1kZ6bNw/maxresdefault.jpg",
+        "ctaLink": "/products/ace-pro",
+        "ctaText": ""
+      },
+      {
+        "id": 3,
+        "title": "",
+        "subtitle": "",
+        "image": "https://insta360.co.id/wp-content/uploads/2025/01/WEB-BANNER-DESKTOP-.png",
+        "ctaLink": "/products/flow",
+        "ctaText": ""
+      }
+    ]
+  },
+  "productSection": {
+    "title": "Produk Inovatif untuk Kreativitas Tanpa Batas.",
+    "categories": [
+      { "id": "semua", "name": "Semua Produk" },
+      { "id": "action-360", "name": "Kamera 360" },
+      { "id": "action-biasa", "name": "Kamera Aksi Biasa" },
+      { "id": "gimbal-stabilizer", "name": "Gimbal Stabilizer" },
+      { "id": "rumah-kantor", "name": "Rumah & Kantor" },
+      { "id": "professional", "name": "Professional" }
+    ],
+    "products": [
+      {
+        "id": 1,
+        "name": "Insta360 X4",
+        "description": "The 8K 360° Action Cam",
+        "image": "https://www.insta360.com/assets/static/en/img/x3/kv_mb.jpg",
+        "price": 8599000,
+        "category": ["action-360", "semua"],
+        "isNew": true,
+        "detailLink": "/products/x4",
+        "buyLink": "/products/x4/buy",
+        "specs": {
+          "resolution": "8K 360°",
+          "battery": "2290mAh",
+          "waterproof": "10m",
+          "storage": "microSD up to 1TB"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Insta360 X3",
+        "description": "The 5.7K action powerhouse",
+        "image": "https://www.insta360.com/assets/static/en/img/x3/kv_mb.jpg",
+        "price": 6999000,
+        "category": ["action-360", "semua"],
+        "isNew": false,
+        "detailLink": "/products/x3",
+        "buyLink": "/products/x3/buy",
+        "specs": {
+          "resolution": "5.7K 360°",
+          "battery": "1800mAh",
+          "waterproof": "10m",
+          "storage": "microSD up to 1TB"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Insta360 Ace Pro 2",
+        "description": "5.7K Action Cam with 1.4-inch sensor",
+        "image": "https://www.insta360.com/assets/index/img/ace_pro/kv/m_kv.jpg",
+        "price": 7599000,
+        "category": ["action-biasa", "semua"],
+        "isNew": true,
+        "detailLink": "/products/ace-pro",
+        "buyLink": "/products/ace-pro/buy",
+        "specs": {
+          "resolution": "5.7K",
+          "battery": "1650mAh",
+          "waterproof": "10m",
+          "sensor": "1-inch"
+        }
+      },
+      {
+        "id": 4,
+        "name": "Insta360 GO 3S",
+        "description": "Tiny but mighty. The smallest action cam.",
+        "image": "https://www.insta360.com/assets/static/en/img/go_2/kv_mb.jpg",
+        "price": 4299000,
+        "category": ["action-biasa", "semua"],
+        "isNew": false,
+        "detailLink": "/products/go-3s",
+        "buyLink": "/products/go-3s/buy",
+        "specs": {
+          "resolution": "4K",
+          "weight": "35g",
+          "waterproof": "5m",
+          "modes": "POV, FPV, Time Lapse"
+        }
+      },
+      {
+        "id": 5,
+        "name": "Insta360 Flow 2 Pro",
+        "description": "Smartphone gimbal with AI tracking",
+        "image": "https://www.insta360.com/assets/static/en/img/flow/kv_mb.jpg",
+        "price": 3999000,
+        "category": ["gimbal-stabilizer", "semua"],
+        "isNew": false,
+        "detailLink": "/products/flow",
+        "buyLink": "/products/flow/buy",
+        "specs": {
+          "max-load": "300g",
+          "battery-life": "12 hours",
+          "features": "AI tracking, time-lapse"
+        }
+      },
+      {
+        "id": 6,
+        "name": "Insta360 Link 2",
+        "description": "4K AI-powered webcam",
+        "image": "https://www.insta360.com/assets/static/en/img/one_rs/kv_mb.jpg",
+        "price": 4995000,
+        "category": ["rumah-kantor", "semua"],
+        "isNew": false,
+        "detailLink": "/products/link",
+        "buyLink": "/products/link/buy",
+        "specs": {
+          "resolution": "4K",
+          "tracking": "AI subject tracking",
+          "zoom": "4x digital zoom",
+          "connection": "USB-C"
+        }
+      }
+    ]
+  },
+  "activityCategories": {
+    "title": "Temukan Produk Sesuai Minat",
+    "categories": [
+      {
+        "id": "mountain-biking",
+        "name": "Mengendarai Motor",
+        "image": "https://plus.unsplash.com/premium_photo-1661914996965-e50604094097?q=80&w=800",
+        "products": [1, 2, 3]
+      },
+      {
+        "id": "outdoor-adventure",
+        "name": "Olahraga Air",
+        "image": "https://images.unsplash.com/photo-1575385384545-68860aeeebac?q=80&w=800",
+        "products": [1, 2, 4]
+      },
+      {
+        "id": "travel",
+        "name": "Travelling",
+        "image": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=800",
+        "products": [1, 2, 4, 5]
+      },
+      {
+        "id": "skiing",
+        "name": "Olahraga Salju",
+        "image": "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?q=80&w=800",
+        "products": [1, 2, 3, 4]
+      }
+    ]
+  },
+  "comparisonSection": {
+    "title": "Temukan Produk",
+    "comparisons": [
+      {
+        "id": "cameras",
+        "title": "Dapatkan kamera terbaik untuk Anda dengan membandingkan produk atau mengikuti kuis singkat.",
+        "image": "https://www.insta360.com/assets/static/en/img/campaign/eis/kv_mb.jpg",
+        "ctaText": "MEMBANDINGKAN",
+        "ctaLink": "/compare/cameras"
+      },
+      {
+        "id": "accessories",
+        "title": "Maksimalkan rekaman Anda dengan perlengkapan resmi Insta360.",
+        "image": "https://www.insta360.com/assets/static/en/img/campaign/360_lab/kv_mb.jpg",
+        "ctaText": "LIHAT ACCESSORIES",
+        "ctaLink": "/accessories"
+      }
+    ]
+  },
+  "news": {
+    "title": "The latest news and inspiring stories.",
+    "articles": [
+      {
+        "id": 1,
+        "title": "Tantangan Petualangan Outdoor",
+        "subtitle": "Tips penggunaan kamera Insta360 untuk dokumentasi outdoor",
+        "image": "https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=800",
+        "date": "2023-12-10",
+        "link": "/blog/outdoor-adventure-challenge"
+      },
+      {
+        "id": 2,
+        "title": "Koleksi Terbaik Insta360 2024",
+        "subtitle": "Rangkuman kreasi terbaik pengguna Insta360 sepanjang tahun",
+        "image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=800",
+        "date": "2024-01-15",
+        "link": "/blog/best-of-2024"
+      }
+    ]
+  },
+  "businessSection": {
+    "title": "Insta360 Enterprise",
+    "subtitle": "Kamera profesional untuk kebutuhan bisnis.",
+    "image": "https://www.insta360.com/assets/static/en/img/campaign/business/kv_mb.jpg",
+    "ctaText": "SELENGKAPNYA",
+    "ctaLink": "/enterprise"
+  }
+} 

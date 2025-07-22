@@ -1,0 +1,246 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+  --primary-color: #FFCB05;
+  --accent-color: #232323;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+/* Custom styles for homepage */
+.product-tabs .ant-tabs-nav::before {
+  border-bottom: none;
+}
+
+.product-tabs .ant-tabs-nav {
+  margin-bottom: 16px;
+}
+
+.product-tabs .ant-tabs-tab {
+  font-size: 14px;
+  padding: 6px 12px;
+  margin: 0 4px;
+  border-radius: 0;
+  transition: all 0.2s;
+  color: #666;
+}
+
+.product-tabs .ant-tabs-tab:hover {
+  color: #000;
+}
+
+.product-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #000;
+  font-weight: 500;
+}
+
+.product-tabs .ant-tabs-ink-bar {
+  background-color: #000;
+  height: 2px;
+}
+
+/* Carousel styles */
+.ant-carousel .slick-dots li button {
+  background: rgba(255, 255, 255, 0.8);
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+}
+
+.ant-carousel .slick-dots li.slick-active button {
+  background: white;
+  width: 8px;
+}
+
+.custom-dots {
+  bottom: 40px !important;
+  left: 50% !important;
+  transform: translateX(-50%);
+  text-align: center !important;
+}
+
+/* Fix for hero carousel images */
+.ant-carousel .slick-slide {
+  height: 80vh;
+  overflow: hidden;
+}
+
+.ant-carousel .slick-slide > div {
+  height: 100%;
+}
+
+/* Video background in hero */
+.ant-carousel video {
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 768px) {
+  .ant-carousel video {
+    height: 100%;
+    width: auto;
+  }
+}
+
+.ant-carousel .slick-prev,
+.ant-carousel .slick-next {
+  z-index: 2;
+  color: white !important;
+}
+
+.ant-carousel .slick-prev {
+  left: 10px;
+}
+
+.ant-carousel .slick-next {
+  right: 10px;
+}
+
+.product-card {
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.activity-card:hover .bg-cover {
+  transform: scale(1.05);
+}
+
+.news-card {
+  transition: transform 0.3s;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .custom-dots {
+    bottom: 10px !important;
+  }
+}
+
+/* Header styles */
+header .ant-menu-horizontal .ant-menu-item::after,
+header .ant-menu-horizontal .ant-menu-submenu::after {
+  border-bottom: none !important;
+}
+
+header .ant-menu-horizontal > .ant-menu-item:hover,
+header .ant-menu-horizontal > .ant-menu-submenu:hover {
+  color: #000;
+  border-bottom-color: transparent;
+}
+
+header .ant-menu-horizontal > .ant-menu-item-selected {
+  color: #000;
+  font-weight: 500;
+  border-bottom-color: transparent;
+}
+
+/* Button styles */
+.ant-btn {
+  transition: all 0.2s;
+}
+
+.ant-btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #000;
+}
+
+.ant-btn-primary:hover,
+.ant-btn-primary:focus {
+  background-color: #FFD52E;
+  border-color: #FFD52E;
+  color: #000;
+}
+
+/* Product cards */
+.product-card button {
+  text-transform: uppercase;
+  font-size: 12px;
+  transition: all 0.2s;
+}
+
+.product-card button:hover {
+  background-color: #f0f0f0;
+  border-color: #ccc;
+}
+
+/* Transparent dropdown menu */
+.transparent-dropdown .ant-dropdown-menu {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(8px);
+}
+
+.transparent-dropdown .ant-dropdown-menu-item:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Footer styles */
+
+footer .ant-input {
+  background-color: #1f1f1f;
+  border-color: #333;
+  color: white;
+}
+
+footer .ant-input:focus,
+footer .ant-input-focused {
+  border-color: #555;
+  box-shadow: none;
+}
+
+footer .ant-input::placeholder {
+  color: #666;
+}
+
+footer ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer .ant-btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+footer .transition-colors {
+  transition: color 0.3s ease;
+}
