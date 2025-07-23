@@ -6,13 +6,12 @@ import { authOptions } from "@/lib/auth/auth";
 const prisma = new PrismaClient();
 
 // GET /api/categories/[id] - Get category by ID
-export async function GET(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+export async function GET(request: NextRequest) {
+  const { searchParams } = request.nextUrl;
+  const id = searchParams.get("id") as string;
   try {
     const category = await prisma.category.findUnique({
-      where: { id: params.id },
+      where: { id },
       select: {
         id: true,
         name: true,
