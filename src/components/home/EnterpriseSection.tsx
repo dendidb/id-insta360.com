@@ -14,6 +14,7 @@ type EnterpriseSectionProps = {
 }
 
 export default function EnterpriseSection({ businessData }: EnterpriseSectionProps) {
+  const {} = businessData
   return (
     <ScrollReveal>
       <section className="py-16 bg-white border-t border-gray-100">

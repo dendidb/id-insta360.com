@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 export type MediaTextSectionProps = {
@@ -48,7 +49,7 @@ const MediaTextSection: React.FC<MediaTextSectionProps> = ({
         {/* Media */}
         <div className="relative w-full md:w-1/2 flex justify-center">
           {mediaType === 'image' ? (
-            <img
+            <Image
               src={mediaUrl}
               alt={mediaAlt}
               className={`w-full max-w-lg ${mediaRounded ? 'rounded-2xl' : ''} ${mediaShadow ? 'shadow-2xl' : ''}`}

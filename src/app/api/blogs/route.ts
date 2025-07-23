@@ -22,13 +22,13 @@ export async function GET(request: NextRequest) {
     const skip = (page - 1) * limit;
 
     // Build where clause
-    const where: any = {};
-    
+    const where: Record<string, string | number | boolean | unknown> = {};
+
     if (search) {
       where.OR = [
         { title: { contains: search, mode: "insensitive" } },
         { excerpt: { contains: search, mode: "insensitive" } },
-        { content: { contains: search, mode: "insensitive" } }
+        { content: { contains: search, mode: "insensitive" } },
       ];
     }
 
@@ -49,7 +49,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Build order by clause
-    const orderBy: any = {};
+    const orderBy: Record<string, string> = {};
     orderBy[sortBy] = sortOrder;
 
     const [blogs, total] = await Promise.all([
@@ -71,27 +71,27 @@ export async function GET(request: NextRequest) {
             select: {
               id: true,
               name: true,
-              email: true
-            }
+              email: true,
+            },
           },
           category: {
             select: {
               id: true,
               name: true,
-              slug: true
-            }
+              slug: true,
+            },
           },
           _count: {
             select: {
-              blogComments: true
-            }
-          }
+              blogComments: true,
+            },
+          },
         },
         skip,
         take: limit,
-        orderBy
+        orderBy,
       }),
-      prisma.blog.count({ where })
+      prisma.blog.count({ where }),
     ]);
 
     return NextResponse.json({
@@ -100,10 +100,9 @@ export async function GET(request: NextRequest) {
         page,
         limit,
         total,
-        pages: Math.ceil(total / limit)
-      }
+        pages: Math.ceil(total / limit),
+      },
     });
-
   } catch (error) {
     console.error("Get blogs error:", error);
     return NextResponse.json(
@@ -117,12 +116,12 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const session = await getServerSession(authOptions);
-    
-    if (!session || !["ADMIN", "AUTHOR", "EDITOR"].includes(session.user.role)) {
-      return NextResponse.json(
-        { error: "Unauthorized" },
-        { status: 401 }
-      );
+
+    if (
+      !session ||
+      !["ADMIN", "AUTHOR", "EDITOR"].includes(session.user.role)
+    ) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
     const body = await request.json();
@@ -136,7 +135,7 @@ export async function POST(request: NextRequest) {
       isFeatured,
       allowComments,
       metaTitle,
-      metaDescription
+      metaDescription,
     } = body;
 
     if (!title || !slug || !content) {
@@ -148,7 +147,7 @@ export async function POST(request: NextRequest) {
 
     // Check if blog with slug already exists
     const existingBlog = await prisma.blog.findUnique({
-      where: { slug }
+      where: { slug },
     });
 
     if (existingBlog) {
@@ -172,7 +171,7 @@ export async function POST(request: NextRequest) {
         allowComments: allowComments !== false,
         metaTitle,
         metaDescription,
-        authorId: session.user.id
+        authorId: session.user.id,
       },
       select: {
         id: true,
@@ -188,27 +187,26 @@ export async function POST(request: NextRequest) {
           select: {
             id: true,
             name: true,
-            email: true
-          }
+            email: true,
+          },
         },
         category: {
           select: {
             id: true,
             name: true,
-            slug: true
-          }
-        }
-      }
+            slug: true,
+          },
+        },
+      },
     });
 
     return NextResponse.json(
-      { 
+      {
         message: "Blog post created successfully",
-        blog
+        blog,
       },
       { status: 201 }
     );
-
   } catch (error) {
     console.error("Create blog error:", error);
     return NextResponse.json(
@@ -216,4 +214,4 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
-} 
+}

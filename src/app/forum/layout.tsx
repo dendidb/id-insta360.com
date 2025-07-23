@@ -13,7 +13,7 @@ import {
 import { useSession } from "next-auth/react";
 import Footer from "@/components/layout/Footer";
 
-const { Header, Content, Footer: AntFooter } = Layout;
+const { Header, Content } = Layout;
 
 export default function ForumLayout({
   children,

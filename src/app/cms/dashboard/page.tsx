@@ -90,7 +90,7 @@ export default function CmsDashboard() {
     {
       title: "Actions",
       key: "actions",
-      render: (_: any, record: any) => (
+      render: (_: unknown, record: Record<string, unknown>) => (
         <div className="flex space-x-2">
           <Button
             type="text"

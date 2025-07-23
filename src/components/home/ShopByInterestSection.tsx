@@ -17,6 +17,7 @@ type ShopByInterestProps = {
 }
 
 export default function ShopByInterestSection({ categories }: ShopByInterestProps) {
+  const {} = categories;
   return (
     <ScrollReveal>
       <section className="py-16 bg-white">

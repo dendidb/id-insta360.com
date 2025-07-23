@@ -84,7 +84,7 @@ export async function PUT(
       }
     }
 
-    const updateData: any = {};
+    const updateData: Record<string, string> = {};
     if (name !== undefined) updateData.name = name;
     if (slug !== undefined) updateData.slug = slug;
 

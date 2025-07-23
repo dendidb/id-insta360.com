@@ -2,8 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Button } from 'antd';
-import { usePathname } from 'next/navigation';
 import { DownOutlined } from '@ant-design/icons';
 
 interface SecondaryHeaderProps {
@@ -23,9 +21,10 @@ const SecondaryHeader: React.FC<SecondaryHeaderProps> = ({
   sections = [],
   cta
 }) => {
-  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
+
+  console.log(scrolled)
   
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth/auth";
+import * as bcrypt from "bcrypt"
 
 const prisma = new PrismaClient();
 
@@ -26,7 +27,7 @@ export async function GET(request: NextRequest) {
     const skip = (page - 1) * limit;
 
     // Build where clause
-    const where: any = {};
+    const where: Record<string, unknown> = {};
     if (search) {
       where.OR = [
         { name: { contains: search, mode: "insensitive" } },
@@ -108,7 +109,6 @@ export async function POST(request: NextRequest) {
     }
 
     // Hash password
-    const bcrypt = require("bcrypt");
     const saltRounds = 12;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 

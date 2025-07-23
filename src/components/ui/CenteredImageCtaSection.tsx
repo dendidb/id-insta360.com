@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 export type CenteredImageCtaSectionProps = {
@@ -80,7 +81,7 @@ const CenteredImageCtaSection: React.FC<CenteredImageCtaSectionProps> = ({
         style={bgStyle}
       >
         <div className="relative flex items-center justify-center w-full max-w-5xl px-4">
-          <img
+          <Image
             src={imageUrl}
             alt={imageAlt}
             className={`w-full ${imageRounded ? 'rounded-2xl' : ''} ${imageShadow ? 'shadow-2xl' : ''}`}
@@ -111,7 +112,7 @@ const CenteredImageCtaSection: React.FC<CenteredImageCtaSectionProps> = ({
         )}
         {/* Image */}
         <div className="flex flex-col items-center justify-center">
-          <img
+          <Image
             src={imageUrl}
             alt={imageAlt}
             className={`w-full ${imageRounded ? 'rounded-2xl' : ''} ${imageShadow ? 'shadow-2xl' : ''}`}

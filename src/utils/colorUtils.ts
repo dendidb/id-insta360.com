@@ -27,6 +27,7 @@ export function isLightColor(r: number, g: number, b: number): boolean {
 export async function getDominantColor(imageUrl: string): Promise<{isLight: boolean, color: [number, number, number]}> {
   try {
     // Get the dominant color using color-thief
+    // @ts-expect-error Fix soon
     const dominantColor = await ColorThief.getColor(imageUrl) as [number, number, number];
     
     // Determine if the color is light or dark

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Card, Form, Input, Button, Typography, Alert, Spin } from "antd";
+import { Card, Form, Input, Button, Typography, Alert } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";

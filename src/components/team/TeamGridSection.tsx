@@ -2,9 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { Button } from "antd";
 import { motion } from "framer-motion";
-import { TeamMember, teamMembers } from "@/data/team-members";
+import { teamMembers } from "@/data/team-members";
 
 const TeamGridSection: React.FC = () => {
   const [category, setCategory] = useState<string>("all");

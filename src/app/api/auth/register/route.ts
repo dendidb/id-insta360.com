@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
 
     // Check if user already exists
     const existingUser = await prisma.user.findUnique({
-      where: { email: email.toLowerCase() }
+      where: { email: email.toLowerCase() },
     });
 
     if (existingUser) {
@@ -38,22 +38,24 @@ export async function POST(request: NextRequest) {
       data: {
         email: email.toLowerCase(),
         password: hashedPassword,
-        name: name || email.split('@')[0], // Use email prefix as name if not provided
-        role: "USER" // Default role
-      }
+        name: name || email.split("@")[0], // Use email prefix as name if not provided
+        role: "USER", // Default role
+      },
     });
 
     // Remove password from response
-    const { password: _, ...userWithoutPassword } = user;
+    const userWithoutPassword = {
+      ...user,
+      password: undefined,
+    };
 
     return NextResponse.json(
-      { 
+      {
         message: "User registered successfully",
-        user: userWithoutPassword
+        user: userWithoutPassword,
       },
       { status: 201 }
     );
-
   } catch (error) {
     console.error("Registration error:", error);
     return NextResponse.json(
@@ -61,4 +63,4 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
-} 
+}

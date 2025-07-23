@@ -3,7 +3,6 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { TeamValue } from "./types";
 import { teamValues } from "@/data/team-data";
 
 const TeamValuesSection: React.FC = () => {

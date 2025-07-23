@@ -6,15 +6,12 @@ import { authOptions } from "@/lib/auth/auth";
 const prisma = new PrismaClient();
 
 // GET /api/auth/profile - Get current user's profile
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     const session = await getServerSession(authOptions);
-    
+
     if (!session) {
-      return NextResponse.json(
-        { error: "Unauthorized" },
-        { status: 401 }
-      );
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
     const user = await prisma.user.findUnique({
@@ -25,19 +22,15 @@ export async function GET(request: NextRequest) {
         name: true,
         role: true,
         createdAt: true,
-        updatedAt: true
-      }
+        updatedAt: true,
+      },
     });
 
     if (!user) {
-      return NextResponse.json(
-        { error: "User not found" },
-        { status: 404 }
-      );
+      return NextResponse.json({ error: "User not found" }, { status: 404 });
     }
 
     return NextResponse.json(user);
-
   } catch (error) {
     console.error("Get profile error:", error);
     return NextResponse.json(
@@ -47,22 +40,20 @@ export async function GET(request: NextRequest) {
   }
 }
 
+interface UpdatedData{ name: string; email: string }
 // PUT /api/auth/profile - Update current user's profile
 export async function PUT(request: NextRequest) {
   try {
     const session = await getServerSession(authOptions);
-    
+
     if (!session) {
-      return NextResponse.json(
-        { error: "Unauthorized" },
-        { status: 401 }
-      );
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
     const body = await request.json();
     const { name, email } = body;
 
-    const updateData: any = {};
+    const updateData: UpdatedData = {} as UpdatedData;
     if (name !== undefined) updateData.name = name;
     if (email !== undefined) updateData.email = email.toLowerCase();
 
@@ -71,8 +62,8 @@ export async function PUT(request: NextRequest) {
       const existingUser = await prisma.user.findFirst({
         where: {
           email: email.toLowerCase(),
-          id: { not: session.user.id }
-        }
+          id: { not: session.user.id },
+        },
       });
 
       if (existingUser) {
@@ -92,15 +83,14 @@ export async function PUT(request: NextRequest) {
         name: true,
         role: true,
         createdAt: true,
-        updatedAt: true
-      }
+        updatedAt: true,
+      },
     });
 
     return NextResponse.json({
       message: "Profile updated successfully",
-      user
+      user,
     });
-
   } catch (error) {
     console.error("Update profile error:", error);
     return NextResponse.json(
@@ -108,4 +98,4 @@ export async function PUT(request: NextRequest) {
       { status: 500 }
     );
   }
-} 
+}

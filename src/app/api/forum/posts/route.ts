@@ -19,7 +19,7 @@ export async function GET(request: NextRequest) {
     const skip = (page - 1) * limit;
 
     // Build where clause
-    const where: any = {};
+    const where: Record<string, unknown> = {};
     
     if (search) {
       where.OR = [
@@ -33,7 +33,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Build order by clause
-    const orderBy: any = {};
+    const orderBy: Record<string, unknown> = {};
     orderBy[sortBy] = sortOrder;
 
     const [posts, total] = await Promise.all([

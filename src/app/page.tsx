@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import homepageData from '@/data/homepage.json';
 
 // Import all the components

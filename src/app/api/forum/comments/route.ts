@@ -18,14 +18,14 @@ export async function GET(request: NextRequest) {
     const skip = (page - 1) * limit;
 
     // Build where clause
-    const where: any = {};
+    const where: Record<string, unknown> = {};
     
     if (postId) {
       where.postId = postId;
     }
 
     // Build order by clause
-    const orderBy: any = {};
+    const orderBy: Record<string, unknown> = {};
     orderBy[sortBy] = sortOrder;
 
     const [comments, total] = await Promise.all([

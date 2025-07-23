@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Layout, Menu, Button, Drawer, Typography } from "antd";
+import { Layout, Menu, Button, Drawer } from "antd";
 import type { MenuProps } from "antd";
 import {
   DashboardOutlined,
@@ -18,8 +18,7 @@ import {
 } from "@ant-design/icons";
 import { usePathname, useRouter } from "next/navigation";
 
-const { Header, Sider, Content, Footer } = Layout;
-const { Title } = Typography;
+const { Header, Sider, Footer } = Layout;
 
 type MenuItem = Required<MenuProps>['items'][number];
 

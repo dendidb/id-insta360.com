@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ConfigProvider } from "antd";
-import { AntdRegistry } from '@ant-design/nextjs-registry';
+import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { Auth } from "@/components/auth/auth-provider";
-import Header from "@/components/layout/Header";
-import NewFooter from "@/components/layout/NewFooter";
 import { insta360Theme } from "@/theme/themeConfig";
 import { ColorProvider } from "@/contexts/ColorContext";
 import "./globals.css";
@@ -39,9 +37,7 @@ export default function RootLayout({
         <AntdRegistry>
           <ConfigProvider theme={insta360Theme}>
             <Auth>
-              <ColorProvider>
-                {children}
-              </ColorProvider>
+              <ColorProvider>{children}</ColorProvider>
             </Auth>
           </ConfigProvider>
         </AntdRegistry>

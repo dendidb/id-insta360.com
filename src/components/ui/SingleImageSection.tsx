@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 export type SingleImageSectionProps = {
@@ -28,7 +29,7 @@ const SingleImageSection: React.FC<SingleImageSectionProps> = ({
       style={{ ...bgStyle, minHeight: height }}
     >
       <div className="relative flex justify-center items-center">
-        <img
+        <Image
           src={imageUrl}
           alt={imageAlt}
           className={`max-w-full ${imageRounded ? 'rounded-2xl' : ''} ${imageShadow ? 'shadow-2xl' : ''}`}

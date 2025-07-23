@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -11,40 +11,42 @@ type HeroSlide = {
   image: string;
   buttonText: string;
   buttonLink: string;
-}
+};
 
 export default function HeroSection() {
   const [activeSlide, setActiveSlide] = useState(0);
-  const carouselRef = useRef<any>(null);
-  const timerRef = useRef<any>(null);
+  const carouselRef = useRef<{ goTo: (nextSlide: number) => void } | null>(
+    null
+  );
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
   const intervalTime = 6000; // 6 seconds for each slide
 
   // Hero slides data
   const slides: HeroSlide[] = [
     {
-      id: 'x5',
-      title: 'Insta360 X5',
-      subtitle: 'All day. All night. All angles.',
-      image: '/images/x5-hero.jpg', // Replace with actual image path
-      buttonText: 'BUY NOW',
-      buttonLink: '/products/x5',
+      id: "x5",
+      title: "Insta360 X5",
+      subtitle: "All day. All night. All angles.",
+      image: "/images/x5-hero.jpg", // Replace with actual image path
+      buttonText: "BUY NOW",
+      buttonLink: "/products/x5",
     },
     {
-      id: 'ace-pro',
-      title: 'Ace Pro 2',
-      subtitle: 'The AI-powered 8K action camera.',
-      image: '/images/ace-2-pro-hero.jpg', // Replace with actual image path
-      buttonText: 'BUY NOW',
-      buttonLink: '/products/ace-pro-2',
+      id: "ace-pro",
+      title: "Ace Pro 2",
+      subtitle: "The AI-powered 8K action camera.",
+      image: "/images/ace-2-pro-hero.jpg", // Replace with actual image path
+      buttonText: "BUY NOW",
+      buttonLink: "/products/ace-pro-2",
     },
     {
-      id: 'flow',
-      title: 'Flow 2 Pro',
-      subtitle: 'Your pocket AI filmmaker.',
-      image: '/images/flow-2-pro-hero.jpg', // Replace with actual image path
-      buttonText: 'BUY NOW',
-      buttonLink: '/products/flow-2-pro',
-    }
+      id: "flow",
+      title: "Flow 2 Pro",
+      subtitle: "Your pocket AI filmmaker.",
+      image: "/images/flow-2-pro-hero.jpg", // Replace with actual image path
+      buttonText: "BUY NOW",
+      buttonLink: "/products/flow-2-pro",
+    },
   ];
 
   // Function to handle slide change
@@ -58,7 +60,7 @@ export default function HeroSection() {
     if (timerRef.current) {
       clearTimeout(timerRef.current);
     }
-    
+
     timerRef.current = setTimeout(() => {
       if (carouselRef.current) {
         const nextSlide = (activeSlide + 1) % slides.length;
@@ -68,19 +70,24 @@ export default function HeroSection() {
   };
 
   // Set up the timer when component mounts
-  useEffect(() => {
-    resetTimer();
-    
-    return () => {
-      if (timerRef.current) {
-        clearTimeout(timerRef.current);
-      }
-    };
-  }, [activeSlide]);
+  useEffect(
+    () => {
+      resetTimer();
+
+      return () => {
+        if (timerRef.current) {
+          clearTimeout(timerRef.current);
+        }
+      };
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [activeSlide]
+  );
 
   return (
     <section className="relative bg-black text-white">
       <Carousel
+        // @ts-expect-error fix soon
         ref={carouselRef}
         afterChange={handleSlideChange}
         dots={false}
@@ -93,7 +100,11 @@ export default function HeroSection() {
             {/* Hero Background Image */}
             <div className="absolute inset-0">
               <Image
-                src={index === 0 ? "https://picsum.photos/1920/1080?random=1" : slide.image} 
+                src={
+                  index === 0
+                    ? "https://picsum.photos/1920/1080?random=1"
+                    : slide.image
+                }
                 alt={slide.title}
                 fill
                 className="object-cover"
@@ -101,7 +112,7 @@ export default function HeroSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40"></div>
             </div>
-            
+
             {/* Content */}
             <div className="absolute inset-0 flex flex-col items-start justify-center px-6 md:px-16 lg:px-24">
               <motion.div
@@ -110,7 +121,9 @@ export default function HeroSection() {
                 transition={{ duration: 0.5 }}
                 className="max-w-2xl"
               >
-                <h1 className="text-5xl md:text-7xl font-bold mb-2">{slide.title}</h1>
+                <h1 className="text-5xl md:text-7xl font-bold mb-2">
+                  {slide.title}
+                </h1>
                 <p className="text-lg md:text-2xl mb-8">{slide.subtitle}</p>
                 <div className="flex space-x-4">
                   <Link href={slide.buttonLink}>
@@ -137,20 +150,20 @@ export default function HeroSection() {
             key={index}
             onClick={() => carouselRef.current?.goTo(index)}
             className={`relative h-1.5 rounded-full transition-all duration-300 ${
-              index === activeSlide ? 'bg-white/70 w-20' : 'bg-white/40 w-6'
+              index === activeSlide ? "bg-white/70 w-20" : "bg-white/40 w-6"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           >
             {index === activeSlide && (
-              <span 
-                className="absolute top-0 left-0 h-full bg-white rounded-full" 
+              <span
+                className="absolute top-0 left-0 h-full bg-white rounded-full"
                 style={{
-                  width: '100%',
-                  transform: 'scaleX(0)',
-                  transformOrigin: 'left',
+                  width: "100%",
+                  transform: "scaleX(0)",
+                  transformOrigin: "left",
                   animation: `heroProgressAnimation ${intervalTime}ms linear forwards`,
-                  boxShadow: '0 0 5px rgba(255, 255, 255, 0.7)',
-                  borderRadius: '20px'
+                  boxShadow: "0 0 5px rgba(255, 255, 255, 0.7)",
+                  borderRadius: "20px",
                 }}
               />
             )}
@@ -170,4 +183,4 @@ export default function HeroSection() {
       `}</style>
     </section>
   );
-} 
+}

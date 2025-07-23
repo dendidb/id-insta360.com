@@ -1,6 +1,6 @@
 'use client';
 
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { usePathname } from 'next/navigation';
 import Header from '@/components/layout/Header';
 import { ColorProvider } from '@/contexts/ColorContext';
@@ -16,7 +16,7 @@ export default function ProductsLayout({
   
   // Define default product information
   let productTitle = '';
-  let productSections = [
+  const productSections = [
     { id: 'features', label: 'Features' },
     { id: 'accessories', label: 'Accessories' },
     { id: 'compare', label: 'Compare' },

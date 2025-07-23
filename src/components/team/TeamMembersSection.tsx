@@ -5,7 +5,6 @@ import Image from "next/image";
 import { Tabs, Button } from "antd";
 import { motion } from "framer-motion";
 import { LinkedinOutlined, InstagramOutlined } from "@ant-design/icons";
-import { TeamMember } from "./types";
 import { teamMembers } from "@/data/team-data";
 
 const { TabPane } = Tabs;
@@ -23,7 +22,7 @@ const TeamMembersSection: React.FC = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">Meet Our Team</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            The passionate individuals behind Insta360's innovative products and experiences.
+            The passionate individuals behind Insta360&apos;s innovative products and experiences.
           </p>
         </div>
 

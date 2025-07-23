@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { Typography, Row, Col, Card, Select, Tabs, Space, Divider } from 'antd';
+import { Typography, Row, Col, Card, Select} from 'antd';
 import Image from 'next/image';
 import { EnvironmentOutlined, PhoneOutlined, DownOutlined } from '@ant-design/icons';
 

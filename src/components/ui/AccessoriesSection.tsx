@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { RightOutlined, LeftOutlined } from '@ant-design/icons';
+import Image from 'next/image';
 
 export type Accessory = {
   imageUrl: string;
@@ -107,14 +108,14 @@ const AccessoriesSection: React.FC<AccessoriesSectionProps> = ({
                 style={cardBgStyle}
               >
                 <div className="relative w-full mb-4 aspect-square overflow-hidden flex items-center justify-center">
-                  <img
+                  <Image
                     src={item.imageUrl}
                     alt={item.imageAlt || item.title}
                     className={`w-full h-full object-contain absolute left-0 top-0 transition-transform duration-500 ${item.hoverImageUrl ? 'group-hover:-translate-y-full' : ''}`}
                     style={{ zIndex: 1 }}
                   />
                   {item.hoverImageUrl && (
-                    <img
+                    <Image
                       src={item.hoverImageUrl}
                       alt={item.imageAlt || item.title + ' hover'}
                       className="w-full h-full object-cover absolute left-0 top-0 transition-transform duration-500 group-hover:translate-y-0 translate-y-full"

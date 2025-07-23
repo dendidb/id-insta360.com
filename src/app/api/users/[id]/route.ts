@@ -92,7 +92,7 @@ export async function PUT(
       );
     }
 
-    const updateData: any = {};
+    const updateData: Record<string, unknown> = {};
     if (name !== undefined) updateData.name = name;
     if (email !== undefined) updateData.email = email.toLowerCase();
     if (role !== undefined && session.user.role === "ADMIN") updateData.role = role;

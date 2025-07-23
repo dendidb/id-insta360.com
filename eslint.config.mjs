@@ -13,14 +13,6 @@ export default [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
 
   {
-    rules: {
-      "@typescript-eslint/no-unused-vars": "off",
-      "@typescript-eslint/no-explicit-any": "off",
-      "react/no-unescaped-entities": "off",
-      "react/react-in-jsx-scope": "off",
-      "no-console": "off",
-      "no-debugger": "off",
-      "react/jsx-key": "off",
-    },
+    rules: {},
   },
 ];

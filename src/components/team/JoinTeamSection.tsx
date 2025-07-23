@@ -23,7 +23,7 @@ const JoinTeamSection: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
             <div className="absolute bottom-0 left-0 p-8 text-white">
               <h3 className="text-2xl font-bold mb-2">Work With Us</h3>
-              <p className="text-white/90">Join a team that's redefining how the world captures moments.</p>
+              <p className="text-white/90">Join a team that&apos;s redefining how the world captures moments.</p>
             </div>
           </div>
           
@@ -31,7 +31,7 @@ const JoinTeamSection: React.FC = () => {
           <div className="w-full lg:w-1/2">
             <h2 className="text-4xl font-bold mb-6">Join Our Team</h2>
             <p className="text-lg text-gray-600 mb-8">
-              At Insta360, we're always looking for passionate, creative individuals who want to push the boundaries of what's possible in imaging technology. Join us in creating the next generation of innovative cameras.
+              At Insta360, we&apos;re always looking for passionate, creative individuals who want to push the boundaries of what&apos;s possible in imaging technology. Join us in creating the next generation of innovative cameras.
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
