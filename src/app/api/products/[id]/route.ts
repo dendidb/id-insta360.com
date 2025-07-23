@@ -8,11 +8,12 @@ const prisma = new PrismaClient();
 // GET /api/products/[id] - Get product by ID
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
 ) {
+  const { searchParams } = request.nextUrl;
+  const id = searchParams.get('id')
   try {
     const product = await prisma.product.findUnique({
-      where: { id: params.id },
+      where: { id },
       select: {
         id: true,
         name: true,
@@ -45,8 +46,9 @@ export async function GET(
 // PUT /api/products/[id] - Update product (admin only)
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
 ) {
+  const { searchParams } = request.nextUrl;
+  const id = searchParams.get("id")
   try {
     const session = await getServerSession(authOptions);
     
@@ -62,7 +64,7 @@ export async function PUT(
 
     // Check if product exists
     const existingProduct = await prisma.product.findUnique({
-      where: { id: params.id }
+      where: { id }
     });
 
     if (!existingProduct) {
@@ -93,7 +95,7 @@ export async function PUT(
     if (price !== undefined) updateData.price = parseFloat(price);
 
     const product = await prisma.product.update({
-      where: { id: params.id },
+      where: { id },
       data: updateData,
       select: {
         id: true,
@@ -123,8 +125,9 @@ export async function PUT(
 // DELETE /api/products/[id] - Delete product (admin only)
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
 ) {
+  const { searchParams } = request.nextUrl
+  const id = searchParams.get("id")
   try {
     const session = await getServerSession(authOptions);
     
@@ -137,7 +140,7 @@ export async function DELETE(
 
     // Check if product exists
     const existingProduct = await prisma.product.findUnique({
-      where: { id: params.id }
+      where: { id }
     });
 
     if (!existingProduct) {
@@ -148,7 +151,7 @@ export async function DELETE(
     }
 
     await prisma.product.delete({
-      where: { id: params.id }
+      where: { id }
     });
 
     return NextResponse.json({
