@@ -95,18 +95,16 @@ model Setting {
 // =============================================================================
 
 model UserRole {
-  id          Int      @id @default(autoincrement())
-  name        String   @unique @db.VarChar(50)
-  description String?  @db.Text
-  permissions Json?
-  createdAt   DateTime @default(now()) @map("created_at")
-  updatedAt   DateTime @updatedAt @map("updated_at")
-  
-  // Relations
-  users       UserRoleAssignment[]
+  userId Int
+  roleId Int
 
-  @@map("roles")
+  user User @relation(fields: [userId], references: [id])
+  role Role @relation(fields: [roleId], references: [id])
+
+  @@id([userId, roleId])
+  @@map("user_roles")
 }
+
 
 model User {
   id                       Int      @id @default(autoincrement())
@@ -171,7 +169,7 @@ model UserRoleAssignment {
   role       UserRole @relation(fields: [roleId], references: [id], onDelete: Cascade)
   assignedByUser User? @relation("AssignedBy", fields: [assignedBy], references: [id], onDelete: SetNull)
 
-  @@id([userId, roleId]) @map("user_id_role_id")
+  @@id([userId, roleId])
   @@map("user_roles")
 }
 
