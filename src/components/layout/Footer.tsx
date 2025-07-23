@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Typography, Input, Button, Space, Divider } from "antd";
 import {
   FacebookOutlined,
@@ -10,7 +9,7 @@ import {
   SendOutlined,
 } from "@ant-design/icons";
 
-const { Title, Paragraph, Text } = Typography;
+const { Title, Paragraph } = Typography;
 const Footer: React.FC = () => {
   return (
     <footer className="bg-gray-900 text-white mt-16">
